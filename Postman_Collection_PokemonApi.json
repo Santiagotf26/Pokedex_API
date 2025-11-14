@@ -1,0 +1,98 @@
+{
+  "info": {
+    "name": "PokemonApi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Colección de pruebas para la API PokemonApi"
+  },
+  "item": [
+    {
+      "name": "Listar todos",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/PokemonApi/pokemon?action=getAll"
+      }
+    },
+    {
+      "name": "Obtener por ID",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/PokemonApi/pokemon?action=getById&id=1"
+      }
+    },
+    {
+      "name": "Buscar",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/PokemonApi/pokemon?action=search&query=pika"
+      }
+    },
+    {
+      "name": "PokéAPI externa",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/PokemonApi/pokemon?action=getExternal&param=pikachu"
+      }
+    },
+    {
+      "name": "Crear",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {"key": "codigoRegistro", "value": "REG-001"},
+            {"key": "pokemonId", "value": "25"},
+            {"key": "nombre", "value": "pikachu"},
+            {"key": "nombreJapones", "value": ""},
+            {"key": "tipo1", "value": "electric"},
+            {"key": "tipo2", "value": ""},
+            {"key": "altura", "value": "0.4"},
+            {"key": "peso", "value": "6.0"},
+            {"key": "habilidad1", "value": "static"},
+            {"key": "habilidad2", "value": ""},
+            {"key": "habilidadOculta", "value": "lightning-rod"},
+            {"key": "hp", "value": "35"},
+            {"key": "ataque", "value": "55"},
+            {"key": "defensa", "value": "40"},
+            {"key": "ataqueEspecial", "value": "50"},
+            {"key": "defensaEspecial", "value": "50"},
+            {"key": "velocidad", "value": "90"},
+            {"key": "spriteUrl", "value": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"},
+            {"key": "nombreEntrenador", "value": "Ash"},
+            {"key": "emailEntrenador", "value": "ash@example.com"},
+            {"key": "apodo", "value": "Pika"},
+            {"key": "nivel", "value": "20"},
+            {"key": "esCapturado", "value": "true"},
+            {"key": "fechaCaptura", "value": "2024-01-01"},
+            {"key": "observaciones", "value": "Primer Pokémon"}
+          ]
+        },
+        "url": "http://localhost:8080/PokemonApi/pokemon?action=create"
+      }
+    },
+    {
+      "name": "Actualizar",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": []
+        },
+        "url": "http://localhost:8080/PokemonApi/pokemon?action=update&id=1"
+      }
+    },
+    {
+      "name": "Eliminar",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:8080/PokemonApi/pokemon?id=1"
+      }
+    }
+  ]
+}
