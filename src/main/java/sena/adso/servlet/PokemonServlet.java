@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import sena.adso.dao.PokemonRecordDAO;
 import sena.adso.dao.PokemonRecordDAOImpl;
 import sena.adso.model.PokemonRecord;
+import sena.adso.util.DatabaseConnection;
 import sena.adso.util.LocalDateAdapter;
 import sena.adso.util.LocalDateTimeAdapter;
 
@@ -34,6 +35,11 @@ public class PokemonServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
+        try {
+            DatabaseConnection.initializeDatabase();
+        } catch (Exception e) {
+            throw new ServletException("Error inicializando la base de datos", e);
+        }
         dao = new PokemonRecordDAOImpl();
         gson = new GsonBuilder()
                 .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
